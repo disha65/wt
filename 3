@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Document</title>
+    <Style>
+        h1 {
+            background-color: green;
+            color: red;
+        }
+        h2 {
+            font-size: large;
+            font-family:comic sans ms; 
+            color: blue;
+        }
+    </Style>
+</head>
+<body>
+    <h1>HYBE</h1>
+    <h2>dance and music entertainment </h2>
+    <p>                    osc"NQlmc    </p>   
+</body>
+</html>
+
+Q2A) 
+import pandas as p
+d=p.read_csv('Iris.csv')
+#remove id field from iris dataset
+new_data = d[["SepalLengthCm", "SepalWidthCm", "PetalLengthCm", "PetalWidthCm"]] 
+print(new_data)
+plt.figure(figsize = (10, 7))
+new_data.boxplot()
+Q2B)
+import pandas as p
+df = pd.read_csv('ht&wt.csv')
+df.shape # no.of rows & cols
+df.describe()
+df.info()
+df.dtypes
+print(df)
