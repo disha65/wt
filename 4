@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <table border="2">
+        <tr>
+            <th colspan="4">list of books</th>
+        </tr>
+        <tr>
+            <th rowspan="2">item No</th>
+            <th rowspan="2">item Name</th>
+            <th colspan="2">item price</th>
+        </tr>
+        <tr>
+            <th>rs</th>
+            <th>paise</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>programming in pytrhon</td>
+            <td>550</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>programming in java</td>
+            <td>233</td>
+            <td>23</td>
+        </tr>
+        <table>
+</body>
+</html>
+
+Q2A)
+ import matplotlib.pyplot as plt
+import numpy as np
+x = np.random.randn(50)
+y = np.random.randn(50)
+plt.plot(x,y)
+plt.show()
+plt.scatter(x,y)
+plt.show()
+plt.hist(x)
+plt.show()
+plt.boxplot(y, vert=False)
+plt.show()
+Q2b)
+ import pandas as p
+df = pd.read_csv('Data.csv')
+df.shape 
+df.describe() 
+df.info() 
+df.dtypes()
+print(df)
+
