@@ -1,0 +1,47 @@
+<html> 
+<head> 
+<style> 
+#ul-nb
+ { 
+list-style: none; 
+margin:2px; 
+padding:3px; 
+} 
+#ul-nb li { 
+float:left; 
+padding:5px; 
+background:darkgray; 
+text-align: center; 
+margin-left:5px; 
+} 
+#ul-nbli:hover { 
+background:grey; 
+opacity:0.8; 
+color:white; 
+} 
+</style> 
+</head> 
+<body> 
+    <ul id="ul-nb"> 
+    <li><a href="#">Home</a></li> 
+    <li><a href="#">Java</a></li> 
+    <li><a href="#">HTML</a></li> 
+    <li><a href="#">CSS</a></li> 
+    </ul> 
+    </body> 
+    </html>
+
+Q2) 
+import pandas as p
+from sklearn import preprocessing import LabelEncoder
+ d = pd.read_csv('Data.csv')
+
+label_encoder =LabelEncoder()
+ d['purchased']= label_encoder.fit_transform(d['purchased'])
+print('modified data is',d)
+one_hot_encoded_data = p.get_dummies(d, columns = ['country'],prefix=['country'])
+print(one_hot_encoded_data)
+
+
+
+    
