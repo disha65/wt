@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    
+    <body>
+        <fieldset>
+            <form action="Q1.php" method=get>
+                <input type="text" name="no1" placeholder="Enter First Number:"><br> <br>
+                
+                <input type="text" name="no2" placeholder="Enter Second Number"><br> <br>
+                SELECT YOUR CHOICE:<br>
+                MOD
+                <input type="radio" name="op" value="1"><br>
+                POWER
+                <input type="radio" name="op" value="2"><br>
+                SUM OF n NUMBERS (first number as n)
+                <input type="radio" name="op" value="3"><br>
+                FACTORIAL OF SECOND NUMBER
+                <input type="radio" name="op" value="4"><br>
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
+    </body>
+</html>
+
+<?php 
+    $no1 = $_GET['no1'];
+    $no2 = $_GET['no2'];
+    $ch = $_GET['op'];    
+    switch($ch){
+        case 1: echo "Mod is:".mod($no1,$no2);
+                break;
+        case 2: echo "Power is :".power($no1,$no2);
+                break;
+        case 3: echo "Sum is :".sum($no1);
+                break;
+        case 4: echo "Factorial is :".fact($no2);
+                break;  
+    }    
+    function mod($no1,$no2)
+    {
+        return $no1/$no2;
+    }    
+    function power($no1,$no2)
+    {
+        return $no1**$no2;
+    }
+    function sum($no1)
+    {
+        $s = 0;
+        for($i=1;$i<=$no1;$i++)
+            $s = $s + $i;
+        return $s;
+    }
+    function fact($no2)
+    {
+        $f = 1;
+        for($i=$no2;$i>=1;$i--)
+            $f = $f * $i;
+        return $f;
+    }
+?>
+
+import pandas as p
+df=p.read_csv("ht&wt.csv")
+print("mean is \n",df.mean)
+print("median is \n",df.median)
+Q2B)
+def distancesum (x, y, n): 
+    sum = 0
+      
+    for i in range(n): 
+        for j in range(i+1,n): 
+            sum += (abs(x[i] - x[j]) +
+                        abs(y[i] - y[j])) 
+          return sum
+  x = [ -1, 1, 3, 2 ] 
+y = [ 5, 6, 5, 3 ] 
+n = len(x) 
+print(distancesum(x, y, n) )
+
