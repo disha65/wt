@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form action="slip8.php" method="GET">
+        <label for="s1">enter 1st string</label>
+        <input type="text" name="s1" value="s1">
+        <br><br>
+        <label for="s2">enter 2nd string</label>
+        <input type="text" name="s2" value="s2">
+        <br><br>
+        <input type="submit" value="submit">
+        <br>
+        <input type="text" name="n">
+    </form>
+</body>
+</html>
+
+<?php
+$s1=$_GET["s1"];
+$s2=$_GET["s2"];
+$a=strstr($s1,$s2);
+if(!strstr($s1,$s2))
+{
+    echo("string not found");
+}
+else
+{  
+    echo("string  appered at start");
+}
+$a = strpos($s1,$s2);
+echo '<br>position = '. $a;
+$n=$_GET[n];
+$m=strncasecmp($s1,$s2,$n);
+if(m==0)
+echo"first n  char are same";
+else
+echo"first n  char are same";
+ ?>
+
+from pandas import*
+from numpy import*
+from sklearn import preprocessing
+import scipy.stats as p
+d=read_csv('wine.csv')
+print('Standardizing data')
+x_wine=array(d)
+print('Initial mean : ',p.tmean(x_wine).round(2))
+print('Initial standard deviation is :',round(x_wine.std(),2))
+x_scaled=preprocessing.scale(x_wine)
+x_scaled.mean(axis=0)
+x_scaled.std(axis=0)
+print('\nStandardized Data : \n',x_scaled.round(2))
+print('\nStandardized Mean : ',p.tmean(x_scaled).round(2))
+print('\nStandardized Deviation : ',round(x_scaled.std().round(2)))
