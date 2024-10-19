@@ -1,0 +1,90 @@
+<html>
+ <body>
+ <fieldset>
+ <form action="Q2.php" method=get>              
+    Enter string:
+<input type="text" name="x" ><br> <br>
+Input a seprator
+<select name="s" id="s">
+ <option value="#">#</option>
+<option value="@">@</option>
+<option value="%">%</option>
+<option value="!">!</option>
+</select>
+<br>
+Enter another a seprator
+<select name="r" id="r"></select>
+ <option value="#">#</option>
+<option value="@">@</option>
+<option value="%">%</option>
+<option value="!">!</option>
+</select><br>
+<input type="submit" value="Submit">
+</form>
+ </fieldset>
+</body>
+</html>
+
+<?php
+    $x = $_GET['x'];
+    $s = $_GET['s'];
+    $r = $_GET['r'];
+    echo "<br>Entered string is :$x";
+    $str_arr = explode($s,$x);
+    echo "<br>Spitting string is";
+    print_r($str_arr);
+    $os = str_replace($s,$r,$x);
+    echo "<br>new string :$os";
+    echo "<br>Word in $x :".strstr($x,$s);   
+?>
+
+Q2A)
+import numpy as np
+import matplotlib.pyplot as p
+np.random.seed(42)
+random_data=np.random.randint(1,100,50)
+fig,axs=p.subplots(2,2,figsize=(12,8))
+fig.suptitle('Random integer data visualization')
+axs[0,0].plot(random_data,'bo-')
+axs[0,0].set_title('line chart')
+axs[0,0].set_xlabel('index')
+axs[0,0].set_ylabel('value')
+
+axs[0,1].scatter(range(50),random_data, color='g',marker='x')
+axs[0,1].set_title('scatter plot')
+axs[0,1].set_xlabel('index')
+axs[0,1].set_ylabel('value')
+
+axs[1,0].hist(random_data,bins=10,color='r',alpha=0.7)
+axs[1,0].set_title('histogram')
+axs[1,0].set_xlabel('value')
+axs[1,0].set_ylabel('frequency')
+
+axs[1,1].boxplot(random_data,vert=False,patch_artist=True,boxprops=dict(facecolor='y'))
+axs[1,1].set_title('BoxPlot')
+p.tight_layout(rect=[0,0,1,0.85])
+p.show()
+
+Q2B)
+ import matplotlib.pyplot as p
+subject=['Maths','Science','History','English','Arts']
+marks=[90,85,75,92,88]
+p.figure(figsize=(8,8))
+p.pie(marks,labels=subject,autopct='%1.1f%%',startangle=140)
+p.title('Marks distribution by subject')
+p.axis('equal')
+p.figure(figsize=(10,6))
+p.bar(subject,marks,color='lightgreen')
+p.title('Marks distribution by subject')
+p.xlabel('Subject')
+p.ylabel('Marks')
+p.ylim(0,100)
+p.tight_layout()
+p.show()
+
+Q2C)
+import pandas as p
+df = pd.read_csv('winequality-red.csv')
+print("\n",df.shape)
+print("\n",df.describe()) 
+print("\n",df.head(3))
