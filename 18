@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>SETCQ2</title>
+</head>
+<form action='setc2.php' method='get'>
+<body>
+<table>
+<center>
+<fieldset>
+<input type='radio' name='r' value='1'>a.Reverse the order of each element’s key-value pair. <br>
+<input type='radio' name='r' value='2'>b.Traverse the element in an array in random order. <br>
+<input type='radio' name='r' value='3'>c. Convert the array elements into individual variables.<br>
+<input type='radio' name='r' value='4'>d.Display the elements of an array along with key. <br>
+<input type=submit name=submit value=submit>
+</center>
+</fieldset>
+</body>
+</html>
+
+<?php 
+$a = array("a"=>1,"b"=>21,"c"=> 56); 
+switch($_GET['s'])  
+{ 
+case 1: 
+echo "Orginal Array is <br>"; 
+print_r($a); 
+echo "reverse Array is <br>"; 
+$c =array_reverse($a); 
+print_r($c); 
+break; 
+case 2: 
+echo "Orginal Array is <br>"; 
+print_r($a); 
+echo "traversing Array is <br>"; 
+foreach($a as $v) 
+echo "$v<br>"; 
+break; 
+case 3: 
+echo " Original array is<br>"; 
+print_r($a); 
+echo "elements into individual variables<br>"; 
+$e = extract($a); 
+print_r($e); 
+break; 
+case 4: 
+echo " Original array is<br>"; 
+print_r($a); 
+echo "key value pair is<br>"; 
+foreach ($a as $k=>$v) 
+{ 
+print_r("$k=>$v"); 
+echo"<br>"; 
+} 
+break; 
+default: 
+echo "Invalid choice!!"; 
+} 
+?> 
+
+Q2A)
+import pandas as p
+d=p.read_csv('Iris.csv')
+#remove id field from iris dataset
+new_data = d[["SepalLengthCm", "SepalWidthCm", "PetalLengthCm", "PetalWidthCm"]] 
+print(new_data)
+plt.figure(figsize = (10, 7))
+new_data.boxplot()
+
+Q2B)
+import pandas as p
+df = pd.read_csv('ht&wt.csv')
+print(df.head(5))
+print(df.tail(5))
+print(df.sample(10))
