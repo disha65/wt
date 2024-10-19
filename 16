@@ -1,0 +1,61 @@
+<html>
+<head>
+<title> </title>
+</head>
+<form action='setc1.php' method='get'>
+<body>
+<center>
+<b>Enter  5 serial number:
+<input type='text' name='r'><br>
+<b>Enter 5 subject name:
+<input type='text' name='n'><br>
+<b>Enter 5 subject marks:
+<input type='text' name='s1'>
+<br><br>
+<button>Submit</button>
+</body>
+</html>
+
+<?php
+$r=explode(",",$_GET['r']);
+$n=explode(",",$_GET['n']);
+$s1=explode(",",$_GET['s1']);
+$c=count($r);
+echo"<table border=4 align=center>";
+echo"<tr><th>Roll no</th><th>Subject name</th><th>Marks</th></tr>";
+for($i=0;$i<=$c;$i++){
+	echo"<tr><td>".$r[$i]."</td><td>".$n[$i]."</td><td>".$s1[$i]."</td></tr>";
+}
+foreach($s1 as $v){
+	$t += $v;
+}
+$p=$t/5;
+echo"<tr><td colspan=3>Total:".$t."</td></tr>";
+echo"<tr><td colspan=3>Percentage:".$p."</td></tr>";
+?>
+
+Q2A)
+import matplotlib.pyplot as p
+subject=['Maths','Science','History','English','Arts']
+marks=[90,85,75,92,88]
+p.figure(figsize=(8,8))
+p.pie(marks,labels=subject,autopct='%1.1f%%',startangle=140)
+p.title('Marks distribution by subject')
+p.axis('equal')
+p.figure(figsize=(10,6))
+p.bar(subject,marks,color='lightgreen')
+p.title('Marks distribution by subject')
+p.xlabel('Subject')
+p.ylabel('Marks')
+p.ylim(0,100)
+p.tight_layout()
+p.show()
+
+Q2B)
+import pandas as p
+import numpy as n
+df=p.DataFrame({'name':['kunal','rekha','satish','ashish','radha'],
+               'age':[20,23,22,20,21],
+               'per':[98,80,95,92,85]})
+print(n.average(df['age']))
+print(n.average(df['per']))
