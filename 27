@@ -1,0 +1,47 @@
+<!DOCTYPEhtml>
+<html>
+<head>
+<title>FileCopyProgram</title>
+</head>
+<body>
+<form action="process.php"method="post">
+<label for="file1">Enterthenameof thefirst file(withextension):
+</label><br>
+<input type="text"id="file1"name="file1"required><br><br>
+ <label for="file2">Enterthenameof thesecondfile(withextension):
+ </label><br>
+ <input type="text"id="file2"name="file2"required><br><br>
+ <input type="submit"value="CopyContent">
+ </form>
+ </body>
+ </html>
+
+ <?php
+ if($_SERVER["REQUEST_METHOD"]=="POST"){
+ $file1=$_POST['file1'];
+ $file2=$_POST['file2'];
+ //Checkif thefirst fileexists
+ if(!file_exists($file1)){
+ echo"Thefile<strong>$file1</strong>doesnotexist.";
+ exit;
+ }
+ $content=file_get_contents($file1);
+ if(file_put_contents($file2,$content)!==false){
+ echo"Contentof<strong>$file1</strong>hasbeencopiedto<strong>$file2</strong>.";
+ }else{
+ echo"Errorcopyingcontent to<strong>$file2</strong>.";
+ }
+ }else{
+ echo"<p>Nodatareceived.</p>";
+ }
+ ?>
+
+import pandas as p
+from sklearn import preprocessing import LabelEncoder
+ d = pd.read_csv('Data.csv')
+
+label_encoder =LabelEncoder()
+ d['purchased']= label_encoder.fit_transform(d['purchased'])
+print('modified data is',d)
+one_hot_encoded_data = p.get_dummies(d, columns = ['country'],prefix=['country'])
+print(one_hot_encoded_data)
