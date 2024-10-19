@@ -1,0 +1,73 @@
+<html>
+ <head>
+ <title>ArithmeticOperations</title>
+</head>
+<body>
+<h1>ArithmeticOperationsForm</h1>
+<form action="result.php"method="post">
+<label for="num1">EnterFirstNumber:</label><br>
+<input type="number"id="num1"name="num1"required><br><br>
+<label for="num2">EnterSecondNumber:</label><br>
+<input type="number"id="num2"name="num2"required><br><br>
+<label>ChooseanOperation:</label><br>
+<input type="radio"id="add"name="operation"value="add"checked>
+<label for="add">Add</label><br>
+<input type="radio"id="subtract"name="operation"value="subtract">
+<label for="subtract">Subtract</label><br>
+<input type="radio"id="multiply"name="operation"value="multiply">
+<label for="multiply">Multiply</label><br>
+<input type="radio"id="divide"name="operation"value="divide">
+<label for="divide">Divide</label><br><br>
+<input type="submit"value="Calculate">
+</form>
+</body>
+</html>
+
+ PHPCODE
+ <?php
+ include'functions.php';
+ if($_SERVER["REQUEST_METHOD"]=="POST"){
+ $num1=(float)$_POST['num1'];
+ $num2=(float)$_POST['num2'];
+ $operation=$_POST['operation'];
+ $result=calculate($num1,$num2,$operation);
+ echo"<h1>Result</h1>";
+ echo"<p>Resultof$operation between $num1 and $num2 is:<strong>$result</strong></p>";
+ }else{
+ echo"<p>No data received.</p>";
+}
+ ?>
+
+Q2A) import numpy as np
+import matplotlib.pyplot as p
+np.random.seed(42)
+random_data=np.random.randint(1,100,50)
+fig,axs=p.subplots(2,2,figsize=(12,8))
+fig.suptitle('Random integer data visualization')
+axs[0,0].plot(random_data,'bo-')
+axs[0,0].set_title('line chart')
+axs[0,0].set_xlabel('index')
+axs[0,0].set_ylabel('value')
+
+axs[0,1].scatter(range(50),random_data, color='g',marker='x')
+axs[0,1].set_title('scatter plot')
+axs[0,1].set_xlabel('index')
+axs[0,1].set_ylabel('value')
+
+axs[1,0].hist(random_data,bins=10,color='r',alpha=0.7)
+axs[1,0].set_title('histogram')
+axs[1,0].set_xlabel('value')
+axs[1,0].set_ylabel('frequency')
+
+axs[1,1].boxplot(random_data,vert=False,patch_artist=True,boxprops=dict(facecolor='y'))
+axs[1,1].set_title('BoxPlot')
+p.tight_layout(rect=[0,0,1,0.85])
+p.show()
+
+Q2B)import pandas as p
+df=p.DataFrame({'name':['kunal','rekha','satish','ashish','radha'],
+               'dept':['production','computer','manufacturing',None,'manufacturing'],
+                'salary':[100000,300000,20000,300000,80000] })
+print(df)
+d=df.dropna()
+print(d)
