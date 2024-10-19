@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>SETAQ2</title>
+</head>
+<form action='seta2.php' method='get'>
+<body>
+<center>
+<fieldset>
+<h1>Choose Menu</h1>
+<input type='radio' name='ch' value='1'>a.Insert an element in stack<br>
+<input type='radio' name='ch' value='2'>b.Delete an element from stack<br>
+<input type='radio' name='ch' value='3'>c.Display the contents of stack<br>
+<input type=submit name=submit value=submit>
+</center>
+</fieldset>
+</body>
+</html>
+
+<?php
+$op=$_GET['ch'];
+$b=array(20,21,32,43,25,64,72,18,90);
+echo"<br>Original array:=<br>";
+print_r($b);
+switch($op){
+case 1: array_push($b,10);
+	echo"<br>";
+	echo"After insert an element in stack:<br>";
+	print_r($b);
+	break;
+case 2: array_pop($b,10);
+	echo"<br>";
+	echo"After delete an element from stack:<br>";
+	print_r($b);
+	break;
+case 3: echo"Contents of stack:<br>";
+	print_r($b);
+	break;				
+}
+?>
+
+q2]
+from pandas import*
+from numpy import*
+from sklearn import preprocessing
+import scipy.stats as p
+d=read_csv('wine.csv')
+df=DataFrame(d)
+print(d)
+print("Rescaling data:")
+print('Data scaled between 0-1 : ')
+data_scaler=preprocessing.MinMaxScaler(feature_range=(0,1))
+data_scaled=data_scaler.fit_transform(df)
+print(data_scaled.round(2))
+print('Standardizing data')
+x_wine=array(d)
+print('Initial mean : ',p.tmean(x_wine).round(2))
+print('Initial standard deviation is :',round(x_wine.std(),2))
+x_scaled=preprocessing.scale(x_wine)
+x_scaled.mean(axis=0)
+x_scaled.std(axis=0)
+print('\nStandardized Data : \n',x_scaled.round(2))
+print('\nStandardized Mean : ',p.tmean(x_scaled).round(2))
+print('\nStandardized Deviation : ',round(x_scaled.std().round(2)))
+print('Binarizing Data')
+data_binarized=preprocessing.Binarizer(threshold=5).transform(df)
+print('Binarized data')
+print(data_binarized)
