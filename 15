@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form action="slip15.php" method="GET">
+        <label>enter string</label>
+        <input type="text" name="string"><br><br>
+        <input type="submit"><br> enter choice:=
+        <input type="text" name="ch">
+    </form>
+</body>
+</html>
+<?php
+$s=$_GET["string"];
+$ch=$_GET["ch"];
+switch($ch)
+{
+    case 1:$s2=substr($s,0,5);
+          echo" first 5 words=$s2";
+          break;
+    case 2:$l=strtolower($s);
+    echo"lower case=$l";
+    $t=ucwords($s);
+    echo"tile case=$t";
+    break;
+    case 3:$p=ltrim($s);
+    echo" trim liding space=$p";
+    break;
+    case 4:$rev=strrev($s);
+    echo "$rev";
+}
+?>
+
+q1]
+import numpy as np
+import matplotlib.pyplot as p
+np.random.seed(42)
+random_data=np.random.randint(1,100,50)
+fig,axs=p.subplots(2,2,figsize=(12,8))
+fig.suptitle('Random integer data visualization')
+axs[0,0].plot(random_data,'bo-')
+axs[0,0].set_title('line chart')
+axs[0,0].set_xlabel('index')
+axs[0,0].set_ylabel('value')
+
+axs[0,1].scatter(range(50),random_data, color='g',marker='x')
+axs[0,1].set_title('scatter plot')
+axs[0,1].set_xlabel('index')
+axs[0,1].set_ylabel('value')
+
+axs[1,0].hist(random_data,bins=10,color='r',alpha=0.7)
+axs[1,0].set_title('histogram')
+axs[1,0].set_xlabel('value')
+axs[1,0].set_ylabel('frequency')
+
+axs[1,1].boxplot(random_data,vert=False,patch_artist=True,boxprops=dict(facecolor='y'))
+axs[1,1].set_title('BoxPlot')
+p.tight_layout(rect=[0,0,1,0.85])
+p.show()
+
+q2]
+import matplotlib.pyplot as p
+subject=['Maths','Science','History','English','Arts']
+marks=[90,85,75,92,88]
+p.figure(figsize=(8,8))
+p.pie(marks,labels=subject,autopct='%1.1f%%',startangle=140)
+p.title('Marks distribution by subject')
+p.axis('equal')
+p.figure(figsize=(10,6))
+p.bar(subject,marks,color='lightgreen')
+p.title('Marks distribution by subject')
+p.xlabel('Subject')
+p.ylabel('Marks')
+p.ylim(0,100)
+p.tight_layout()
+p.show()
