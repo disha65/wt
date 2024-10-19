@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>SETCQ2</title>
+</head>
+<form action='setc2.php' method='get'>
+<body>
+<table>
+<center>
+<fieldset>
+<input type='radio' name='r' value='1'>a.Split array into chunks<br>
+<input type='radio' name='r' value='2'>b.Sort the array by values without changing the keys<br>
+<input type='radio' name='r' value='3'>c.Filter the odd elements from an array<br>
+<input type=submit name=submit value=submit>
+</center>
+</fieldset>
+</body>
+</html>
+
+
+<?php
+$ch=$_GET['r'];
+$a=array("ty"=>25,"sy"=>15,"fy"=>30,"msc"=>3);
+echo"<br><b>1st array:=<br>";
+print_r($a);
+$a1= array('ira'=>15,'nia'=>57,'ria'=>3,'alia'=>30);
+echo"<br>2nd array:<br>";
+print_r($a1);
+$a2= array(15,48,10,155,2,78);
+echo"<br>3rd array:<br>";
+print_r($a2);
+echo"<br><br>";
+switch($ch){
+case 1: echo"<br>Array in chunks of two<br>";
+	print_r(array_chunk($a,2,true));
+	echo"<br><br>";
+	break;
+	
+case 2: echo"<br>without sort:<br>";
+	print_r($a);
+	asort($a);
+	echo"<br>Array in ascending order:<br>";
+	print_r($a);
+	arsort($a);
+	echo"<br>Array in descending order:<br>";
+	print_r($a);
+	break;
+case 3: function isodd($v){
+		return $v%2;
+	}
+	print_r($a2);
+	echo"<br>";
+	echo"<br>Filter the odd elements from an array<br>";
+	print_r(array_filter($a2,'isodd'));
+	break;
+}
+?>
+
+Q2A) import numpy as np
+import matplotlib.pyplot as p
+np.random.seed(42)
+random_data=np.random.randint(1,100,50)
+fig,axs=p.subplots(2,2,figsize=(12,8))
+fig.suptitle('Random integer data visualization')
+axs[0,0].plot(random_data,'bo-')
+axs[0,0].set_title('line chart')
+axs[0,0].set_xlabel('index')
+axs[0,0].set_ylabel('value')
+
+axs[0,1].scatter(range(50),random_data, color='g',marker='x')
+axs[0,1].set_title('scatter plot')
+axs[0,1].set_xlabel('index')
+axs[0,1].set_ylabel('value')
+
+axs[1,0].hist(random_data,bins=10,color='r',alpha=0.7)
+axs[1,0].set_title('histogram')
+axs[1,0].set_xlabel('value')
+axs[1,0].set_ylabel('frequency')
+
+axs[1,1].boxplot(random_data,vert=False,patch_artist=True,boxprops=dict(facecolor='y'))
+axs[1,1].set_title('BoxPlot')
+p.tight_layout(rect=[0,0,1,0.85])
+p.show()
