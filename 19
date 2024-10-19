@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>SETAQ1</title>
+</head>
+<form action='setc2.php' method='get'>
+<body>
+<center>
+<b>Enter 1st string
+<input type='text' name='s1'><br>
+<b>Enter 2nd string
+<input type='text' name='s2'><br>
+Enter position:
+<input type='text' name='po'><br>
+<button>Submit</button>
+</body>
+</html>
+
+<?php
+$s1=$_GET['s1'];
+$s2=$_GET['s2'];
+$pos=$_GET['po'];
+echo"<center><b><br>Entered 1st string:$s1";
+echo"<center><b><br>Entered 2nd string:$s2";
+echo"<center><b><br>Entered position:$pos";
+echo"<br><br><b>After deleting a small part from 1st string no. of characters to remove:<br>";
+echo substr_replace($s1,$s2,$pos);
+echo"<br><br><b>Insert the given small string in the given man string at position without removing any character: <br>";
+echo substr_replace($s1,$s2,$pos,0);
+echo"<br><br><b>Replace some characters from the given string with small string at position: <br>";
+echo substr_replace($s1,$s2,$pos,0,3);
+?>
+
+Q2A)
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame(columns = ['Name','Age','Percentage'])
+df.loc[0] = ['Kunal',19,98]
+df.loc[1] = ['Dhruv',24,99]
+df.loc[2] = ['Abhishek',20,95]
+df.loc[3] = ['Disha',20,89]
+df.loc[4] = ['Hemanshu',29,87]
+df.loc[5] = ['Om',17,82]
+df.loc[6] = ['Krishna',19,90]
+df.loc[7] = ['Nikita',24,77]
+df.loc[8] = ['Aarin',18,79]
+df.loc[9] = ['Eshwari',22,70]
+print(df)
+print("Size of dataframe :")
+print(df.shape)
+print("Type of dataframe :")
+print(df.dtypes)
+print("Description of dataframe :")
+print(df.describe())
+print("Features of Dataframe :")
+print(df.info())
+
+print(df.dtypes)
+df["remark"]=None
+print(df)
+
+
+add 10 to15
