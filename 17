@@ -1,0 +1,48 @@
+<?php
+$array=array("Sophia"=>"31","Jacob"=>"41","William"=>"39","Ramesh"=>"40");
+echo"<br><b>Associative array: Ascending order sort by value:=<br></b>";
+asort($array);
+print_r($array);
+echo"<br>";
+
+foreach($array as $y=>$value){
+	echo $y."=>".$value."<br>";
+}
+echo"<br><b>Associative array: Ascending order sort by key:=<br></b>";
+ksort($array);
+foreach($array as $y=>$yvalue){
+	echo $y."=>".$yvalue."<br>";
+}
+echo"<br><b>Associative array: Descending order sort by value:=<br></b>";
+arsort($array);
+foreach($array as $y=>$yvalue){
+	echo $y."=>".$yvalue."<br>";
+}
+echo"<br><b>Associative array: Descending order sort by key:=<br></b>";
+krsort($array);
+foreach($array as $y=>$yvalue){
+	echo $y."=>".$yvalue."<br>";
+}
+?>
+
+Q2B)
+import pandas as p
+df=p.DataFrame({'name':['kunal','rekha','satish','ashish','radha'],
+               'age':[20,23,22,20,21],
+               'salary':[100000,300000,20000,300000,80000] })
+df
+Q2A)
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+iris=load_iris()
+data=iris.data
+sepal_length=data[:,0]
+sepal_width=data[:,1]
+plt.figure(figsize=(10,5))
+plt.scatter(sepal_length,sepal_width,c=iris.target)
+plt.title('comparison between sepal length and sepal width')
+plt.xlabel(' sepal length')
+plt.ylabel(' sepal width')
+plt.colorbar(ticks=[0,1,2],label='species')
+plt.grids(True)
+plt.show()
