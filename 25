@@ -1,0 +1,88 @@
+<html>
+<body>
+<form action="setc1.php" method="GET">
+Enter File name : 
+ <input type="text" name="f1">
+ <br><br>
+1)Disp1ay type of file.....
+<input type="radio" name="op" value="1">
+<br>
+2)Display last access time of file.....
+<input type="radio" name="op" value="2">
+<br/>
+3)Display size of file.....
+<input type="radio" name="op" value="3">
+<br/>
+4)Delete the file.....
+<input type="radio" name="op" value="4">
+<br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+<?php
+$file=$_GET["f1"];
+$fp=fopen($file,"r");
+$ch=$_GET["op"];
+switch($ch)
+{
+    case 1 :
+    $ft=filetype($file);
+    echo " The type of file is : ". $ft;
+    break;
+    case 2:
+    $lt=fileatime($file);
+    echo " The last accessed time of file  is : ". date("F D Y H:i:s",$lt);
+    break;
+    case 3:
+    $fs=filesize($file);
+    echo " The size of file is : ".$fs;
+    break;
+    case 4:
+    $b=unlink($file);
+    if($b==1)
+       echo " File is deleted.....";
+    else
+        echo " File is not deleted....";
+    ;
+}
+?>
+
+a]
+import numpy as np
+import matplotlib.pyplot as p
+np.random.seed(42)
+random_data=np.random.randint(1,100,50)
+fig,axs=p.subplots(2,2,figsize=(12,8))
+fig.suptitle('Random integer data visualization')
+axs[0,0].plot(random_data,'bo-')
+axs[0,0].set_title('line chart')
+axs[0,0].set_xlabel('index')
+axs[0,0].set_ylabel('value')
+
+axs[0,1].scatter(range(50),random_data, color='g',marker='x')
+axs[0,1].set_title('scatter plot')
+axs[0,1].set_xlabel('index')
+axs[0,1].set_ylabel('value')
+
+axs[1,0].hist(random_data,bins=10,color='r',alpha=0.7)
+axs[1,0].set_title('histogram')
+axs[1,0].set_xlabel('value')
+axs[1,0].set_ylabel('frequency')
+
+b]
+import numpy as np
+import matplotlib.pyplot as p
+np.random.seed(42)
+random_data=np.random.randint(1,100,50)
+outliers=[150,175]
+random_data=np.append(random_data,outliers)
+fig,axs=p.subplots(1,2,figsize=(12,6))
+fig.suptitle('VOX p-plot with outliers')
+axs[0].boxplot(random_data[:-2],vert=False,patch_artist=True,boxprops=dict(facecolor='y'))
+axs[0].set_title('Box Plot(No outliers)')
+axs[1].boxplot(random_data,vert=False,patch_artist=True,boxprops=dict(facecolor='y'))
+axs[1].set_title('Box Plot(With outliers)')
+p.tight_layout(rect=[0,0,1,0.85])
+p.show()
