@@ -1,0 +1,66 @@
+Student.dat file 
+rollno name OS  WT  DS  Python  Java  CN 
+1       Abd 30  30  25  23       20    45 
+2       xyz 32  33  24  25       25    45 
+
+<?php 
+$fp=fopen("student.dat","r"); 
+$ar=fscanf($fp,"%s%s%s%s%s%s%s%s",$rl,$nm,$os,$wt,$ds,$py,$jv,$cn);
+echo "<table 
+border=1><tr><th>$rl</th><th>$nm</th><th>$os</th><th>$wt</th><th>$ds</th><t
+ h>$py</th><th>$jv</th><th>$cn</th><th>Percentage</tr>"; 
+while(($ar=fscanf($fp,"%s%s%d%d%d%d%d%d",$rl,$nm,$os,$wt,$ds,$py,$jv,$cn))!=f
+ alse) 
+{ 
+$total=$os+$wt+$ds+$py+$jv+$cn; 
+$per=$total/6; 
+echo 
+"<tr><th>$rl</th><th>$nm</th><th>$os</th><th>$wt</th><th>$ds</th><th>$py</t
+ h><th>$jv</th><th>$cn</th><td>$per</td></tr>"; 
+} 
+echo "</table>"; 
+?>
+
+q1]
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+df = pd.DataFrame(columns = ['Name','Age','Percentage'])
+df.loc[0] = ['Kunal',19,98]
+df.loc[1] = ['Dhruv',24,99]
+df.loc[2] = ['Abhishek',20,95]
+df.loc[3] = ['Disha',20,89]
+df.loc[4] = ['Hemanshu',29,87]
+df.loc[5] = ['Om',17,82]
+df.loc[6] = ['Krishna',19,90]
+df.loc[7] = ['Nikita',24,77]
+df.loc[8] = ['Aarin',18,79]
+df.loc[9] = ['Eshwari',22,70]
+print(df)
+print("Size of dataframe :")
+print(df.shape)
+print("Type of dataframe :")
+print(df.dtypes)
+print("Description of dataframe :")
+print(df.describe())
+print("Features of Dataframe :")
+print(df.info())
+
+df = pd.DataFrame(columns = ['Name','Age','Percentage'])
+df.loc[0] = ['Kunal',19,98]
+df.loc[1] = ['Dhruv',24,99]
+df.loc[2] = ['Abhishek',20,95]
+df.loc[3] = ['Disha',20,89]
+df.loc[4] = ['Hemanshu',29,87]
+df.loc[5] = ['Om',17,82]
+df.loc[6] = ['Krishna',19,90]
+df.loc[7] = ['Nikita',24,77]
+df.loc[8] = ['Aarin',18,79]
+df.loc[9] = ['Eshwari',22,70]
+df.loc[10] = ['Kunal',19,98]
+df.loc[11] = ['Athrav',19,98]
+df.loc[12] = ['Abhishek',23,95]
+df.loc[13] = ['Disha','',83]
+df.loc[14] = ['Hemanshu',30,67]
+df["remark"] = None
+print(df)
