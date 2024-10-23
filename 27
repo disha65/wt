@@ -20,14 +20,13 @@
  if($_SERVER["REQUEST_METHOD"]=="POST"){
  $file1=$_POST['file1'];
  $file2=$_POST['file2'];
- //Checkif thefirst fileexists
  if(!file_exists($file1)){
  echo"Thefile<strong>$file1</strong>doesnotexist.";
  exit;
  }
  $content=file_get_contents($file1);
  if(file_put_contents($file2,$content)!==false){
- echo"Contentof<strong>$file1</strong>hasbeencopiedto<strong>$file2</strong>.";
+ echo"Contentof<strong>$file1</strong>has been copied to<strong>$file2</strong>.";
  }else{
  echo"Errorcopyingcontent to<strong>$file2</strong>.";
  }
