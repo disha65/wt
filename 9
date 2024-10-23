@@ -26,17 +26,22 @@ Enter another a seprator
 </html>
 
 <?php
-    $x = $_GET['x'];
-    $s = $_GET['s'];
-    $r = $_GET['r'];
-    echo "<br>Entered string is :$x";
-    $str_arr = explode($s,$x);
-    echo "<br>Spitting string is";
-    print_r($str_arr);
-    $os = str_replace($s,$r,$x);
-    echo "<br>new string :$os";
-    echo "<br>Word in $x :".strstr($x,$s);   
+     $x=$_GET['x'];
+     $s=$_GET['s'];
+     $r=$_GET['r'];
+     echo"<b><center>Entered string is:=</b>".$x;
+     echo"<b><br> Separator:=</b>$s";
+     echo"<b><br>Replacement:=</b>$r";
+     $str_arr=explode("$s",$x);
+     echo "<b><br>Spitting string is:=</b>";
+     print_r($str_arr);
+     echo "<br>";
+     $os=str_replace($s,$r,$x);
+     echo"<b><br> New replace string:=</b>$os";
+     echo "<br>";
+     echo "<b>Last Word in $x</b>:=".strstr($x,$s);
 ?>
+
 
 Q2A)
 import numpy as np
