@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Document</title>
+<title> setB1.html</title>
 </head>
 <body>
-    <form action="slip8.php" method="GET">
-        <label for="s1">enter 1st string</label>
-        <input type="text" name="s1" value="s1">
-        <br><br>
-        <label for="s2">enter 2nd string</label>
-        <input type="text" name="s2" value="s2">
-        <br><br>
-        <input type="submit" value="submit">
-        <br>
-        <input type="text" name="n">
-    </form>
+<form action=setB1.php method=get>
+<fieldset>
+<center>
+<b> Enter 1st String:
+<input type=text name=s1><br>
+<b> Enter 2nd String:
+<input type=text name=s2><br>
+a.Find whether the small string appears at the start of the string
+<input type=radio name=ch value=a><br>
+b.Find the position of small string in last stirng
+<input type=radio name=ch value=b><br>
+c.Compare string with n characters
+<input type=radio name=ch value=c><br>
+
+<input type=submit name=submit value=submit>
+</fieldset>
+</form>
 </body>
 </html>
 
 <?php
-$s1=$_GET["s1"];
-$s2=$_GET["s2"];
-$a=strstr($s1,$s2);
-if(!strstr($s1,$s2))
-{
-    echo("string not found");
+$s1=$_GET['s1'];
+$s2=$_GET['s2'];
+$ch=$_GET['ch'];
+echo"<center><b><br>Entered 1st string:$s1";
+echo"<center><b><br>Entered 2nd string:$s2";
+switch($ch)
+{ case 'a':if(strpos($s1,$s2)==0)
+		{ echo"<br><b>\"$s2\"</b> is at the start of <b>\"$s1\"</b>";
+		}
+		else
+		echo"<br><b>\"$s2\"</b> is not at the start of<b> \"$s1\"</b>";
+		break;
+ case'b':$pos=strpos($s1,$s2);
+ 	echo"Position of $s2 in $s1=$pos";
+ 	break;
+ 	
+ case 'c':echo"string compare with n charchters:=".strncasecmp($s1,$s2,4);
+ break;
 }
-else
-{  
-    echo("string  appered at start");
-}
-$a = strpos($s1,$s2);
-echo '<br>position = '. $a;
-$n=$_GET[n];
-$m=strncasecmp($s1,$s2,$n);
-if(m==0)
-echo"first n  char are same";
-else
-echo"first n  char are same";
- ?>
+
+
+
 
 from pandas import*
 from numpy import*
