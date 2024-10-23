@@ -1,44 +1,45 @@
-<html>
- <head>
- <title>ArithmeticOperations</title>
-</head>
-<body>
-<h1>ArithmeticOperationsForm</h1>
-<form action="result.php"method="post">
-<label for="num1">EnterFirstNumber:</label><br>
-<input type="number"id="num1"name="num1"required><br><br>
-<label for="num2">EnterSecondNumber:</label><br>
-<input type="number"id="num2"name="num2"required><br><br>
-<label>ChooseanOperation:</label><br>
-<input type="radio"id="add"name="operation"value="add"checked>
-<label for="add">Add</label><br>
-<input type="radio"id="subtract"name="operation"value="subtract">
-<label for="subtract">Subtract</label><br>
-<input type="radio"id="multiply"name="operation"value="multiply">
-<label for="multiply">Multiply</label><br>
-<input type="radio"id="divide"name="operation"value="divide">
-<label for="divide">Divide</label><br><br>
-<input type="submit"value="Calculate">
-</form>
-</body>
+<html> 
+<body> 
+<form action="q1.php"method="POST"> 
+first number 
+<input type=text name=s2><br> 
+second number 
+<input type=text name=s1><br> 
+chose opration from below<br> 
+addition 
+<input type=radio value="1" name=op> <br> 
+subtraction 
+<input type=radio value="2"name=op> <br> 
+<input type= submit value="submit"><br> 
+</body> 
 </html>
 
- PHPCODE
- <?php
- include'functions.php';
- if($_SERVER["REQUEST_METHOD"]=="POST"){
- $num1=(float)$_POST['num1'];
- $num2=(float)$_POST['num2'];
- $operation=$_POST['operation'];
- $result=calculate($num1,$num2,$operation);
- echo"<h1>Result</h1>";
- echo"<p>Resultof$operation between $num1 and $num2 is:<strong>$result</strong></p>";
- }else{
- echo"<p>No data received.</p>";
-}
- ?>
+<?php 
+$x=$_POST['s1']; 
+$y=$_POST['s2']; 
+$op=$_POST['op']; 
+ function add($x=4,$y=2) 
+ { 
+ $result=$x+$y; 
+ echo"adition is $result"; 
+ } 
+function sub($x=4,$y=2) 
+ { 
+ $result=$x-$y; 
+ echo"subtraction is $result"; 
+ } 
+switch ($op) 
+{ 
+case"1": add($x,$y); 
+ break; 
+case"2": sub($x,$y); 
+break; 
+} 
+?>
 
-Q2A) import numpy as np
+
+
+import numpy as np
 import matplotlib.pyplot as p
 np.random.seed(42)
 random_data=np.random.randint(1,100,50)
