@@ -80,3 +80,18 @@ axs[1,1].boxplot(random_data,vert=False,patch_artist=True,boxprops=dict(facecolo
 axs[1,1].set_title('BoxPlot')
 p.tight_layout(rect=[0,0,1,0.85])
 p.show()
+
+import numpy as np
+import matplotlib.pyplot as p
+np.random.seed(42)
+random_data=np.random.randint(1,100,50)
+outliers=[150,175]
+random_data=np.append(random_data,outliers)
+fig,axs=p.subplots(1,2,figsize=(12,6))
+fig.suptitle('Vox p.plot with outliers')
+axs[0].boxplot(random_data[:-2],vert=False,patch_artist=True,boxprops=dict(facecolor='y'))
+axs[0].set_title('Box Plot(No outliers)')
+axs[1].boxplot(random_data,vert=False,patch_artist=True,boxprops=dict(facecolor='y'))
+axs[1].set_title('Box Plot(No outliers)')
+p.tight_layout(rect=[0,0,1,0.85])
+p.show()
